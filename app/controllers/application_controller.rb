@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
  before_action :configure_permitted_parameters, if: :devise_controller?
-
+ 
  protected
 
 # Add these keys to the permited parameters (gem devise)

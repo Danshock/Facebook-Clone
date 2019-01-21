@@ -1,2 +1,34 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h5>Home#index</h5>
+<h1>Under Development ...</h1>
+
+<% unless user_signed_in? %>
+  <%= link_to "Sign In", new_user_session_path %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "New Post", new_post_path %>
+    <%= link_to "Edit", edit_user_registration_path %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <p>Logged in as <%= full_name(current_user) %></p>
+<% end %>
+
+<h3>All Posts</h3>
+
+<% @posts.each do |post| %>
+  <ul>
+    <li>
+  	  Posted by: <%= post.user.first_name %><br />
+  	  "<%= post.body %>"<br />
+  	  Posted: <%= post.created_at %>
+
+  	  <% if post.user_id == current_user.id %>
+  	    <%= link_to "Edit", edit_post_path(post) %>
+  	    <%= link_to "Delete", post_path(post), method: :delete %>
+  	  <% end %>
+    </li>	
+  </ul>
+<% end %>
+
+
+

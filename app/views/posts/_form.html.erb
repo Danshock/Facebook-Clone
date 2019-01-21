@@ -1,0 +1,10 @@
+<!-- Form for creating new posts -->
+<%= form_for @post do |f| %>
+  <%= f.label :body, "What's on your mind?" %><br />
+  <%= f.text_area :body %>
+
+  <%  f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.submit ( f.object.new_record? ? "Post" : "Update") %>
+  <%= link_to "Back", :back %>
+<% end %>
