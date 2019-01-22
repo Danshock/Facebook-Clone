@@ -20,9 +20,11 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-
 # Devise
 gem 'devise'
+# Guard 
+gem 'guard',                    '2.13.0'
+gem 'guard-minitest',           '2.4.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
