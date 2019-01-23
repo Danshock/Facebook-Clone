@@ -26,6 +26,9 @@ gem 'devise'
 gem 'guard',                    '2.13.0'
 gem 'guard-minitest',           '2.4.4'
 
+# Rails Controller Testing
+gem 'rails-controller-testing'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
