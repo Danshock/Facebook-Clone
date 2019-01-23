@@ -1,15 +1,9 @@
+<% provide(:title) %>
 <h5>Home#index</h5>
 <h1>Under Development ...</h1>
 
-<% unless user_signed_in? %>
-  <%= link_to "Sign In", new_user_session_path %>
-  <%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
-
 <% if user_signed_in? %>
   <%= link_to "New Post", new_post_path %>
-    <%= link_to "Edit", edit_user_registration_path %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
   <p>Logged in as <%= full_name(current_user) %></p>
 <% end %>
 

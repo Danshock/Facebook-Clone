@@ -17,15 +17,15 @@
         <td> <%= post.user.first_name %> </td>
         <td> "<%= post.body %>" </td>
         <td> <%= post.created_at %> </td>
-        <td> <%= button_to 'Like', post_likes_path(post), method: :post %> </td>
+        <td> <%= link_to 'Like', post_likes_path(post), method: :post, class: "btn btn-outline-primary" %> </td>
         <td> <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %>
         </td>
 
         <!-- Allow only the author to edit and delete their posts -->
         <% if post.user_id == current_user.id %>
-          <td> <%= link_to "Edit", edit_post_path(post) %> 
+          <td> <%= link_to "Edit", edit_post_path(post), class: "btn btn-warning" %> 
           </td>
-          <td> <%= link_to "Delete", post_path(post), method: :delete %> 
+          <td> <%= link_to "Delete", post_path(post), method: :delete, class: "btn btn-danger" %> 
           </td>
       </tr>
         <% end %>

@@ -1,3 +1,5 @@
+<% provide(:title, "Edit User") %>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -36,7 +38,7 @@
   </div>
 <% end %>
 
-<h3>Permanently Delete Your Account</h3>
+<h4>Permanently Delete Your Account</h4>
 
 <p><%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure? Your account can not be restored if you delete it." }, method: :delete %></p>
 

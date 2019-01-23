@@ -25,6 +25,9 @@ gem 'devise'
 # Guard 
 gem 'guard',                    '2.13.0'
 gem 'guard-minitest',           '2.4.4'
+#Bootstrap
+gem 'bootstrap-sass'
+gem 'jquery-rails'
 
 # Rails Controller Testing
 gem 'rails-controller-testing'
