@@ -1,6 +1,9 @@
 <!-- Only signed in users can see posts -->
 <% if user_signed_in? %>
 <h3>All Posts</h3>
+  <%= link_to "New Post", new_post_path %>
+    <p>Logged in as <%= full_name(current_user) %></p>
+    
 <table>
   <thead>
     <tr>

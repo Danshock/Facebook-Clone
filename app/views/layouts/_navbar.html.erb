@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-light" style="background-color: #3b5998;">
 	<div class="container">
-		<%= link_to "FACEBOOK-CLONE", root_path, id: "logo" %>
+	<%= link_to "facebook-clone", root_path, id: "logo" %>
 		<nav>
 			<ul class="nav navbar-nav navbar-right">
 				<!-- Show navbar menus only to signed in users -->
@@ -21,8 +21,8 @@
 					</ul>
 				</li>
 				<% else %>
-				  <li><%= link_to "Sign up", new_user_registration_path %></li>
-				  <li><%= link_to "Log in", new_user_session_path %></li>
+				  <li><%= link_to "Sign up", new_user_registration_path, class: "nav-element" %></li>
+				  <li><%= link_to "Log in", new_user_session_path, class: "nav-element" %></li>
 				<% end %>
 			</ul>
 		</nav>

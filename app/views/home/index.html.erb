@@ -2,11 +2,6 @@
 <h5>Home#index</h5>
 <h1>Under Development ...</h1>
 
-<% if user_signed_in? %>
-  <%= link_to "New Post", new_post_path %>
-  <p>Logged in as <%= full_name(current_user) %></p>
-<% end %>
-
 <%= render 'posts' %>
 
 

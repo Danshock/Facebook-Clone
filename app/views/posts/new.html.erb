@@ -1,17 +1,35 @@
 <% provide(:title, "New Post") %>
 <!-- Form for creating new posts -->
 <div class="form-group">
-  <div class="col-lg-6">
-    <%= form_for @post do |f| %>
-  		<%= f.label :body, "What's on your mind?" %>
-  		<%= f.text_area :body, class: "form-control", :autofocus => true%>
-  
-  		<%  f.hidden_field :user_id, :value => current_user.id %>
+  <div class="col-lg-10 col-lg-offset-3">
 
-  		<%= f.submit "Post", class: "btn btn-success" %>
-  		<%= link_to "Cancel", :back %>
-	<% end %>
+<%= form_for @post do |f| %>
+<div class="col-xs-12 col-sm-7" id="new_status">
+  <ul class="navbar-nav col-xs-12" id="post_header" role="navigation">
+    <li></li>
+  </ul>
+
+  <div class="col-xs-12" id="post_content">
+    <img alt="profile picture" class="col-xs-1" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242906/profile/profile-80_9.jpg">
+      <div class="textarea_wrap"> <%= f.label :body, class: "sr-only col-xs-11" %> </div><br />
+        <div class="textarea_wrap"> <%= f.text_area :body, :autofocus => true, placeholder: "What's on your mind?", class: "sr-only col-xs-11" %> </div>
+          <%  f.hidden_field :user_id, :value => current_user.id %>
   </div>
+
+  <div class="col-xs-12" id="post_footer">
+    <ul class="navbar-nav col-xs-7">
+      <li><a href="#"><span class="glyphicon glyphicon-camera"></span></a></li>
+    </ul>
+
+    <div class="col-xs-5">
+      <%= f.submit "Post", class: "btn btn-primary" %>
+    </div>
+
+<% end %>
+
+   </div>
+  </div>
+ </div>
 </div>
 
 
