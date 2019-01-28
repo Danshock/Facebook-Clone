@@ -17,7 +17,7 @@ body {
 }
 
 section {
-	overflow: auto;
+	overflow: hidden;
 }
 
 textarea {
@@ -93,6 +93,47 @@ p {
 
 
 
+/* SIDEBAR */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+  border-radius: 15px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+  border-radius: 15px;
+}
+
+
+
 /* FORMS */
 
 .alert {
@@ -128,6 +169,51 @@ p {
 	}
 }
 
+
+
+/* Posts */
+
+a{
+    color:#47649F;
+}
+
+body{
+    font-family:'helvetica';    
+}
+
+/*-- Bootstrap Override Style --*/
+
+
+/*-- Content Style --*/
+.post-footer-option li{
+    float:left;
+    margin-right:50px;
+    padding-bottom:15px;
+}
+
+.post-footer-option li a{
+    color:#AFB4BD;
+    font-weight:500;
+    font-size:1.3rem;
+}
+
+.photo-profile{
+    border:1px solid #DDD;
+    border-radius: 15px;    
+}
+
+.anchor-username h4{
+    font-weight:bold;    
+}
+
+.anchor-time{
+    color:#ADB2BB;
+    font-size:1.2rem;
+}
+
+.post-footer-comment-wrapper{
+    background-color: white;
+}
 
 
 /* NEW STATUS */
@@ -180,6 +266,7 @@ p {
   border: solid #DDD 1px;
   margin: 1.25rem 0;
   padding: 0;
+
 }
 #post_content .textarea_wrap {
   cursor: text;
@@ -241,4 +328,17 @@ p {
 #post_footer .btn-primary {
   background-color: #4e69a2;
   padding: 0 2rem;
+}
+
+
+/* USERS INDEX */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li { 
+    overflow: auto;
+    padding: 10px, 0;
+    border-bottom: 1px solid #f7f7f7;
+    }
 }

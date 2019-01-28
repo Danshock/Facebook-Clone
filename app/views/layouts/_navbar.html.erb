@@ -5,9 +5,9 @@
 			<ul class="nav navbar-nav navbar-right">
 				<!-- Show navbar menus only to signed in users -->
 				<% if user_signed_in? %>
-				<li><%= link_to full_name(current_user), "#", class: "nav-element" %></li>
+				<li><%= link_to full_name(current_user), user_path(current_user), class: "nav-element" %></li>
 				<li><%= link_to "Home", root_path, class: "nav-element" %></li>
-				<li><%= link_to "Friend Requests", "#", class: "nav-element" %></li>
+				<li><%= link_to "Users", users_path, class: "nav-element" %></li>
 				<li><%= link_to "Notifications", "#", class: "nav-element" %></li>
 				<!-- Bootstrap's dropdown menu -->
 				<li class="dropdown">

@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  # Posts should be ordered in DESC format
+  test "order should be most recent first" do
+  	assert_equal posts(:most_recent), Post.first
+  end
+  
 end

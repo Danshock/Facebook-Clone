@@ -4,9 +4,12 @@ class Post < ApplicationRecord
 
   # Setup an association with the Like model.
   has_many   :likes, dependent: :destroy
+
+  # Order posts by the most recent first
+  default_scope -> { order(created_at: :desc) }
   
   # Validations
-  validates  :body, presence: true, length: { minimum: 1, maximum: 240 }, :allow_blank => false
+  validates  :body, presence: true, length: { maximum: 240 }, :allow_blank => false
 
   # Makes sure that every post created has an author/user
   validates  :user, presence: true

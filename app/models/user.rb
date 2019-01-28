@@ -14,8 +14,8 @@ class User < ApplicationRecord
   # because the official one is enormous. However, I am aware of it.
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i 
 
-  validates :first_name, presence: true, length: { minimum: 1, maximum: 50 }, :allow_blank => false
-  validates :last_name,  presence: true, length: { minimum: 1, maximum: 50 }, :allow_blank => false
+  validates :first_name, presence: true, length: { maximum: 50 }, :allow_blank => false
+  validates :last_name,  presence: true, length: { maximum: 50 }, :allow_blank => false
   validates :email, length: { minimum: 1, maximum: 240 }, format: { with: VALID_EMAIL_REGEX }
   validates_uniqueness_of :email, presence: true, :case_sensitive => false
   validates_presence_of :password, if: :password_required?

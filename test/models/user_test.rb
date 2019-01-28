@@ -78,4 +78,13 @@ class UserTest < ActiveSupport::TestCase
   	@user.save
   	assert_equal mixed_case_email_example.downcase, @user.reload.email
   end
+
+  # User's post should be deleted if user is deleted from db
+  test "associated posts should be destroyed" do
+    @user.save
+    @user.posts.create!(body: "Lorem ipsum")
+    assert_difference "Post.count", -1 do
+      @user.destroy
+    end
+  end
 end

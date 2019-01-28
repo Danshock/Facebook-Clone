@@ -1,10 +1,3 @@
-<!-- Only signed in users can see posts -->
-<% if user_signed_in? %>
-<h3>All Posts</h3>
-  <%= link_to "New Post", new_post_path %>
-    <p>Logged in as <%= full_name(current_user) %></p>
-
-<% @posts.each do |post| %>
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
@@ -15,24 +8,24 @@
                             <div class="media">
                               <div class="media-left">
                                 <a href="#">
-                                  <img class="media-object photo-profile"<%= gravatar_for(post.user, size: 60) %>
+                                  <img class="media-object photo-profile"<%= gravatar_for(@post.user, size: 60) %>
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="#" class="anchor-username"><h4 class="media-heading"> <%= full_name(post.user) %></h4></a> 
-                                <a href="#" class="anchor-time"><%= time_ago_in_words(post.created_at) %> ago.</a>
+                                <a href="#" class="anchor-username"><h4 class="media-heading"> <%= full_name(@post.user) %></h4></a> 
+                                <a href="#" class="anchor-time"><%= time_ago_in_words(@post.created_at) %> ago.</a>
                               </div>
                             </div>
                         </div>
                         <div class="col-md-1">
-                          <%= button_to post, method: :delete, remote: true, class: "btn btn-default" do %>
-                  <span class="glyphicon glyphicon-remove"></span>
-              <% end %>
+                          <%= button_to @post, method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "btn btn-default" do %>
+                            <span class="glyphicon glyphicon-remove"></span>
+                          <% end %>
                         </div>       
                     </div>             
                </section>
                <section class="post-body">
-                   <p> <%= post.body %> </p>
+                   <p> <%= @post.body %> </p>
                </section>
                <section class="post-footer">
                    <hr>
@@ -40,19 +33,19 @@
                         <ul class="list-unstyled">
                             <li>
                               <a href="#">
-                                <i class="glyphicon glyphicon-thumbs-up"></i>
-                                  <% pre_like = post.likes.find { |like| like.user_id == current_user.id } %>
+                                <i class="glyphicon glyphicon-thumbs-up"></i> 
+                                  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
                                   <% if pre_like %>
-                                    <%= link_to "Unlike", post_like_path(post, pre_like), method: :delete %>
+                                    <%= link_to "Unlike", post_like_path(@post, pre_like), method: :delete %>
                                   <% else %> 
-                                    <%= link_to "Like", post_likes_path(post), method: :post %>
+                                    <%= link_to "Like", post_likes_path(@post), method: :post %>
                                   <% end %>
                               </a>
                             </li>
-                            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> <%= link_to "Comment", post_path(post) %> </a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Comment</a></li>
                             <!-- if there are no Likes, do not show Likes -->
-                            <% if post.likes.any? %>
-                            <li><a href="#"> <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %> </a> </li>
+                            <% if @post.likes.any? %>
+                            <li><a href="#"> <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes' %> </a> </li>
                             <% end %>
                         </ul>
                    </div>
@@ -64,7 +57,7 @@
                             <div class="media">
                               <div class="media-left">
                                 <a href="#">
-                                  <img class="media-object photo-profile" <%= gravatar_for(post.user, size: 40) %>
+                                  <img class="media-object photo-profile" <%= gravatar_for(@post.user, size: 40) %>
                                 </a>
                               </div>
                               <div class="media-body">
@@ -80,5 +73,3 @@
         </div>   
   </div>
 </div>
-    <% end %>
-<% end %>

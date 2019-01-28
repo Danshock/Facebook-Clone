@@ -1,9 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  body: MyString
-  user: one
-
-two:
-  body: MyString
-  user: two
+most_recent:
+  body: "Lorem Ipsum"
+  created_at: <%= Time.zone.now %>
+  user_id: 1

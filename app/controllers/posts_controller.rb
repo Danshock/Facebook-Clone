@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		
 	end
 
 	# GET /posts/1/new
@@ -18,7 +19,6 @@ class PostsController < ApplicationController
 
 	# Get /posts/id/edit
 	def edit
-
 	end
 
 	# POST /posts
