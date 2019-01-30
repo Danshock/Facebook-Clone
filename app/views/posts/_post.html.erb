@@ -23,7 +23,7 @@
 						              <% end %>
                       	</div>       
                     </div>             
-               </section>
+               </section><br />
                <section class="post-body">
                    <p> <%= post.body %> </p>
                </section>
@@ -32,7 +32,7 @@
                    <div class="post-footer-option container">
                         <ul class="list-unstyled">
                             <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> <%= link_to "Like", post_likes_path(post), method: :post %></a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Comment</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> <%= link_to (post.comments.count) == 1 ? "1 Comment" : "#{post.comments.count} Comments", post_path(post) %> </a></li>
                             <!-- if there are no Likes, do not show Likes -->
                             <% if post.likes.any? %>
                             <li><a href="#"> <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %> </a> </li>
@@ -40,23 +40,6 @@
                         </ul>
                    </div>
                    <div class="post-footer-comment-wrapper">
-                       <div class="comment-form">
-                           
-                       </div>
-                       <div class="comment">
-                            <div class="media">
-                              <div class="media-left">
-                                <a href="#">
-                                  <img class="media-object photo-profile" <%= gravatar_for(@user, size: 40) %>
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="#" class="anchor-username"><h4 class="media-heading">User.name</h4></a>
-                                <p>comment.body</p>
-                                <a href="#" class="anchor-time">51 mins</a>
-                              </div>
-                            </div>
-                       </div>
                    </div>
                </section>
             </div>

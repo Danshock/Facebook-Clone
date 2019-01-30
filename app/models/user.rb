@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   # =//= with the Like model. =//=
   has_many :likes, dependent: :destroy
+  # Setup an association with the Comment model.
+  has_many   :comments, dependent: :destroy
 
   # Using this regular expression and not the Official RFC 5322
   # because the official one is enormous. However, I am aware of it.

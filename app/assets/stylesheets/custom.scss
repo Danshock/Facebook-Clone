@@ -61,7 +61,8 @@ h2 {
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
+  line-height: 1.1em;
+  margin: 0px 0 5px;
 }
 
 /* HEADER */
@@ -213,6 +214,16 @@ body{
 
 .post-footer-comment-wrapper{
     background-color: white;
+}
+
+
+
+/* COMMENTS */
+
+.comment {
+    border-style: transparent; 
+    border-color: #d8d8d8; 
+    overflow: auto;
 }
 
 

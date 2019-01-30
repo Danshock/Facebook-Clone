@@ -1,0 +1,11 @@
+<!-- Form for creating new comments -->
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <%= f.text_area :body, class: "comment form-control" %>
+  <%  f.hidden_field :user_id, :value => current_user.id %>
+
+    <div class="col-xs-5">
+      <%= f.submit "Post", class: "btn btn-primary" %>
+    </div>
+
+<% end %>
+

@@ -1,0 +1,23 @@
+
+<% @comments.each do |comment| %> 
+<div class="post-footer-comment-wrapper">
+<div class="comment-form"></div>
+<div class="comment">
+  <div class="media">
+    <div class="media-left">
+	  <a href="#">
+	    <img class="media-object photo-profile" <%= gravatar_for(comment.user, size: 40) %>
+	  </a>
+	</div>
+<div class="media-body">
+  <a href="#" class="anchor-username"><h4 class="media-heading"> <%= comment.user.first_name %> </h4></a>
+    <p class="comment_content"> <%= comment.body %> </p>
+  <a href="#" class="anchor-time"> <%= time_ago_in_words(comment.created_at) %> ago. </a>
+  <%= link_to "Delete comment", [comment.post, comment], method: :delete %>
+  </div>
+</div>
+</div>
+</div>
+<% end %>
+
+<%= render 'comments/form' %>

@@ -1,3 +1,4 @@
+<h1>InDEX</h1>
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
@@ -12,7 +13,7 @@
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="#" class="anchor-username"><h4 class="media-heading"> <%= full_name(@post.user) %></h4></a> 
+                                <a href="#" class="anchor-username"><h4 class="media-heading"> <%= link_to full_name(@post.user) %></h4></a> 
                                 <a href="#" class="anchor-time"><%= time_ago_in_words(@post.created_at) %> ago.</a>
                               </div>
                             </div>
@@ -23,7 +24,7 @@
                           <% end %>
                         </div>       
                     </div>             
-               </section>
+               </section><br />
                <section class="post-body">
                    <p> <%= @post.body %> </p>
                </section>
@@ -42,32 +43,14 @@
                                   <% end %>
                               </a>
                             </li>
-                            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Comment</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> <%= link_to (@post.comments.count) == 1 ? "1 Comment" : "#{@post.comments.count} Comments", post_path(@post) %> </a></li>
                             <!-- if there are no Likes, do not show Likes -->
                             <% if @post.likes.any? %>
                             <li><a href="#"> <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes' %> </a> </li>
                             <% end %>
                         </ul>
                    </div>
-                   <div class="post-footer-comment-wrapper">
-                       <div class="comment-form">
-                           
-                       </div>
-                       <div class="comment">
-                            <div class="media">
-                              <div class="media-left">
-                                <a href="#">
-                                  <img class="media-object photo-profile" <%= gravatar_for(@post.user, size: 40) %>
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="#" class="anchor-username"><h4 class="media-heading">User.name</h4></a>
-                                <p>comment.body</p>
-                                <a href="#" class="anchor-time">51 mins</a>
-                              </div>
-                            </div>
-                       </div>
-                   </div>
+                   <%= render 'comments/comment' %>
                </section>
             </div>
         </div>   
