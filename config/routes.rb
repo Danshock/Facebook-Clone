@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-    
+
     get '/home', to: 'home#index'
 
-    devise_scope :user do
-        root to: "devise/registrations#new"
-    end
+    #devise_scope :user do
+    #    root to: "devise/registrations#new"
+    #end
+
+    root 'home#index'
 
     authenticated :user do
         root 'home#index', as: :authenticated_root
