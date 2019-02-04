@@ -28,3 +28,6 @@
 
 # Ignore Spring files
 /spring/*.pld
+
+# Ignore application configuration
+/config/application.yml

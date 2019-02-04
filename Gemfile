@@ -32,6 +32,11 @@ gem 'jquery-rails'
 # Rails Controller Testing
 gem 'rails-controller-testing'
 
+gem 'omniauth-facebook'
+
+# Figaro
+gem 'figaro'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
